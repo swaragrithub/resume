@@ -1,0 +1,346 @@
+/* ==========================================================
+   Swara Goyal – Resume
+   Colours, fonts and layout are set up as variables below
+   so they are easy to change in one place.
+   ========================================================== */
+
+:root {
+  --bg: #fffef0;      /* cream page */
+  --ink: #1d1c10;     /* near-black text */
+  --crimson: #be2350; /* name and first dot */
+  --lime: #dae086;    /* role badge and third dot */
+
+  --font-heading: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Poppins", "Segoe UI", Arial, sans-serif;
+
+  --gap: 4.5rem;
+}
+
+/* ---------- Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+a:hover,
+a:focus-visible {
+  border-bottom-color: var(--crimson);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 3px;
+}
+
+/* ---------- Page layout (desktop) ---------- */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--gap);
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+}
+
+.col-left {
+  padding-top: 3.5rem; /* lines the photo up below the three dots */
+}
+
+/* ---------- Photo ---------- */
+.photo {
+  margin: 0 0 2.5rem 8%;
+  width: 86%;
+  border: 1px solid var(--ink);
+  background: #fff;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Header: dots, name, role badge ---------- */
+.dots {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.dot {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+}
+
+.dot-red {
+  background: var(--crimson);
+  border-color: var(--crimson);
+}
+
+.dot-white {
+  background: #fff;
+}
+
+.dot-lime {
+  background: var(--lime);
+  border-color: var(--lime);
+}
+
+h1 {
+  color: var(--crimson);
+  font-weight: 700;
+  font-size: clamp(4rem, 11vw, 8.25rem);
+  line-height: 0.85;
+  letter-spacing: -0.055em;
+}
+
+/* Role badge: lime box with grid lines and corner brackets */
+.role {
+  position: relative;
+  margin: 1.5rem 0 3rem -9rem; /* pulls the badge over towards the photo */
+  padding: 1.6rem 1rem;
+  text-align: center;
+  background-color: var(--lime);
+  background-image:
+    linear-gradient(rgba(29, 28, 16, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 28, 16, 0.3) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: 0 0;
+}
+
+.role span {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* the four corner brackets */
+.role::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--ink) 0 0) top left / 12px 2px,
+    linear-gradient(var(--ink) 0 0) top left / 2px 12px,
+    linear-gradient(var(--ink) 0 0) top right / 12px 2px,
+    linear-gradient(var(--ink) 0 0) top right / 2px 12px,
+    linear-gradient(var(--ink) 0 0) bottom left / 12px 2px,
+    linear-gradient(var(--ink) 0 0) bottom left / 2px 12px,
+    linear-gradient(var(--ink) 0 0) bottom right / 12px 2px,
+    linear-gradient(var(--ink) 0 0) bottom right / 2px 12px;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  font-style: normal;
+  margin-bottom: 2rem;
+}
+
+.contact ul {
+  list-style: none;
+}
+
+.contact li {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Content blocks ---------- */
+.block {
+  margin-bottom: 2.75rem;
+}
+
+.block h2 {
+  padding: 1.1rem 0;
+  margin-bottom: 1.5rem;
+  border-top: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.summary {
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+
+/* Lists */
+.list {
+  padding-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.list li::marker {
+  color: var(--ink);
+}
+
+.list-tight {
+  margin-top: 0.75rem;
+}
+
+/* Experience */
+.job {
+  margin-bottom: 1.5rem;
+}
+
+.job h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Tables (education, projects) */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table th,
+.table td {
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(29, 28, 16, 0.35);
+}
+
+.table th {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.table strong {
+  font-weight: 600;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 1.5rem 2rem 2.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================
+   Tablet and mobile: single column
+   The two columns are dissolved so every section can be put
+   in a sensible reading order (name first, then photo...).
+   ========================================================== */
+@media (max-width: 800px) {
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1.25rem 1rem;
+  }
+
+  .col {
+    display: contents;
+  }
+
+  .page .block,
+  .page .intro,
+  .page .contact {
+    min-width: 0; /* stops wide tables from stretching the whole page */
+  }
+
+  .intro      { order: 1; }
+  .photo      { order: 2; }
+  .contact    { order: 3; }
+  #profile    { order: 4; }
+  #experience { order: 5; }
+  #projects   { order: 6; }
+  #education  { order: 7; }
+  #skills     { order: 8; }
+  #achievements { order: 9; }
+  #hobbies    { order: 10; }
+
+  .photo {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 2rem;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 22vw, 6.5rem);
+  }
+
+  .role {
+    margin: 1.25rem 0 2rem;
+    padding: 1.1rem 0.5rem;
+  }
+
+  .role span {
+    font-size: clamp(1.3rem, 6.5vw, 2rem);
+  }
+}
+
+/* Small phones: let the projects table scroll sideways instead of squashing */
+@media (max-width: 480px) {
+  #projects {
+    overflow-x: auto;
+  }
+
+  #projects .table {
+    min-width: 440px;
+  }
+}
+
+/* ---------- Print: keeps the cream colour and hides nothing ---------- */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
